@@ -1,0 +1,121 @@
+{
+    "model_algorithm": "object_detection",
+    "model_type": "PyTorch",
+    "metrics": {
+        "f1": 0.345294,
+        "recall": 0.351852,
+        "precision": 0.338977,
+        "accuracy": 0.462963
+    },
+    "apis": [
+        {
+            "url": "/",
+            "method": "post",
+            "request": {
+                "Content-type": "multipart/form-data",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "images": {
+                            "type": "file"
+                        }
+                    }
+                }
+            },
+            "response": {
+                "Content-type": "multipart/form-data",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "detection_classes": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "detection_boxes": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "maxItems": 4,
+                                    "items": [
+                                        {
+                                            "type": "number"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "detection_scores": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "number"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "dependencies": [
+      {
+        "installer": "pip",
+        "packages": [
+          {
+            "package_name": "numpy",
+            "package_version": "1.15.0",
+            "restraint": "EXACT"
+          },
+          {
+            "package_name": "Pillow",
+            "package_version": "5.2.0",
+            "restraint": "EXACT"
+          },
+          {
+            "package_name": "scipy"
+
+          },
+          {
+            "package_name": "numpy"
+
+          },
+          {
+            "package_name": "matplotlib"
+
+          },
+          {
+            "package_name": "torch"
+
+          },
+          {
+            "package_name": "torchvision"
+
+          },
+          {
+            "package_name": "tqdm"
+
+          },
+          {
+            "package_name": "Pillow"
+
+          },
+          {
+            "package_name": "h5py"
+
+          },
+          {
+            "package_name": "opencv-python" 
+
+          } 
+        ]
+         
+      }
+    ],
+    "runtime": "pytorch1.4-python3.7"
+}

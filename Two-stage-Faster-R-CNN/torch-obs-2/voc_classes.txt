@@ -1,0 +1,6 @@
+red_stop
+green_go
+yellow_back
+pedestrian_crossing
+speed_limited
+speed_unlimited
