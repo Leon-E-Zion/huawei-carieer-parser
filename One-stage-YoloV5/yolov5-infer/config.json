@@ -1,0 +1,112 @@
+{
+    "model_type": "PyTorch",
+    "model_algorithm": "object_detection",
+    "runtime": "python3.6",
+    "metrics": {
+        "f1": 0.0,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+    },
+    "apis": [{
+        "protocol": "http",
+        "url": "/",
+        "method": "post",
+        "request": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "images": {
+                        "type": "file"
+                    }
+                }
+            }
+        },
+        "response": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "detection_classes": {
+                        "type": "array",
+                        "items": [{
+                            "type": "string"
+                        }]
+                    },
+                    "detection_boxes": {
+                        "type": "array",
+                        "items": [{
+                            "type": "array",
+                            "minItems": 4,
+                            "maxItems": 4,
+                            "items": [{
+                                "type": "number"
+                            }]
+                        }]
+                    },
+                    "detection_scores": {
+                        "type": "array",
+                        "items": [{
+                            "type": "number"
+                        }]
+                    }
+                }
+            }
+        }
+    }],
+    "dependencies": [{
+        "installer": "pip",
+        "packages": [{
+                "restraint": "EXACT",
+                "package_version": "1.19.0",
+                "package_name": "numpy"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "1.7.0",
+                "package_name": "torch"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "0.8.1",
+                "package_name": "torchvision"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "3.3.1",
+                "package_name": "matplotlib"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "5.3.1",
+                "package_name": "PyYAML"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "1.5.2",
+                "package_name": "scipy"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "4.48.2",
+                "package_name": "tqdm"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "4.4.0.42",
+                "package_name": "opencv-python"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "1.1.5",
+                "package_name": "pandas"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "0.11.1",
+                "package_name": "seaborn"
+            }
+        ]
+    }]
+}
